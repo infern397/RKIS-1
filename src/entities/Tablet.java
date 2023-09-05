@@ -12,9 +12,9 @@ public class Tablet extends Computer {
     /**
      * Конструктор класса, инициализирующий объект Tablet с указанными параметрами.
      *
-     * @param releaseYear     Год выпуска планшета.
-     * @param model           Модель планшета.
-     * @param batteryLife     Время работы от аккумулятора планшета (в часах).
+     * @param releaseYear      Год выпуска планшета.
+     * @param model            Модель планшета.
+     * @param batteryLife      Время работы от аккумулятора планшета (в часах).
      * @param screenResolution Разрешение экрана планшета.
      */
     public Tablet(int releaseYear, String model, int batteryLife, String screenResolution) {

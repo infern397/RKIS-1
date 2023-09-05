@@ -11,11 +11,11 @@ import entities.Tablet;
  */
 public class TUI {
 
-    private enum Commands {
+    private enum Commands { // enum для использования в switch в главном меню
         ADD_DEVICE, DELETE_DEVICE, PRINT_ALL_DEVICES, COMPARE_DEVICES, EXIT
     }
 
-    private enum Devices {
+    private enum Devices { // enum для использования в switch в меню выбора устройства для создания
         COMPUTER, PERSONAL_COMPUTER, LAPTOP, TABLET, EXIT
     }
 
@@ -167,7 +167,12 @@ public class TUI {
         System.out.println("Операционная система:");
         operatingSystem = Input.stringInput();
         System.out.println("Кол-во ядер процессора:");
-        processorCoresNumber = Input.naturalIntInput();
+        do {
+            processorCoresNumber = Input.intInput();
+            if (processorCoresNumber <= 0) {
+                System.err.println("Кол-во ядер должно быть больше 0");
+            }
+        } while (processorCoresNumber <= 0);
         return new PersonalComputer(releaseYear, model, processorCoresNumber, operatingSystem);
     }
 
@@ -193,7 +198,7 @@ public class TUI {
             if (batteryLife <= 0) {
                 System.err.println("Время работы от батареи не может быть отрицательным");
             }
-        } while (batteryLife < 0);
+        } while (batteryLife <= 0);
         return new Tablet(releaseYear, model, batteryLife, screenResolution);
     }
 
@@ -229,7 +234,7 @@ public class TUI {
         } else {
             System.out.println("Введите номер элемента для удаления:");
             try {
-                list.remove(Input.naturalIntInput() - 1);
+                list.remove(Input.intInput() - 1);
             } catch (IndexOutOfBoundsException e) {
                 System.err.println("Выбран несуществующий элемент");
             }
@@ -247,9 +252,9 @@ public class TUI {
             System.out.println("Устройств недостаточно");
         } else {
             System.out.println("Введите номер устройства:");
-            firstComputerNumber = Input.naturalIntInput();
+            firstComputerNumber = Input.intInput();
             System.out.println("Введите номер устройства для сравнения:");
-            secondComputerNumber = Input.naturalIntInput();
+            secondComputerNumber = Input.intInput();
             try {
                 if (list.get(firstComputerNumber - 1).hashCode() == list.get(secondComputerNumber - 1).hashCode() && list.get(firstComputerNumber - 1).equals(list.get(secondComputerNumber - 1))) {
                     System.out.println("устройства эквивалентны");

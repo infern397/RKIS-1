@@ -12,10 +12,10 @@ public class PersonalComputer extends Computer {
     /**
      * Конструктор класса, инициализирующий объект PersonalComputer с указанными параметрами.
      *
-     * @param releaseYear        Год выпуска персонального компьютера.
-     * @param model              Модель персонального компьютера.
+     * @param releaseYear          Год выпуска персонального компьютера.
+     * @param model                Модель персонального компьютера.
      * @param processorCoresNumber Количество ядер процессора персонального компьютера.
-     * @param operatingSystem    Операционная система персонального компьютера.
+     * @param operatingSystem      Операционная система персонального компьютера.
      */
     public PersonalComputer(int releaseYear, String model, int processorCoresNumber, String operatingSystem) {
         super(releaseYear, model); // Вызов конструктора суперкласса для инициализации года выпуска и модели.
